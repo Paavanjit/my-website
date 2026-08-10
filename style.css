@@ -80,3 +80,14 @@ nav a:hover {
 nav a:hover::after {
   width: 100%;
 }
+
+@media (max-width: 600px) {
+  nav ul {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  nav a {
+    font-size: 16px;
+  }
+}
