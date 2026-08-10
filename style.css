@@ -1,13 +1,16 @@
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
   background: #0f172a;
   color: white;
   text-align: center;
-  padding: 100px 20px;
+  line-height: 1.6;
+  letter-spacing: 0.3px;
+  padding: 0 20px 100px;
 }
 
 h1 {
   font-size: 48px;
+  margin-top: 100px;
   margin-bottom: 20px;
 }
 
@@ -19,6 +22,7 @@ p {
 nav {
   background: #1e293b;
   padding: 15px 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
 
 nav ul {
@@ -34,9 +38,25 @@ nav a {
   color: #cbd5e1;
   text-decoration: none;
   font-size: 18px;
+  position: relative;
   transition: color 0.2s ease;
+}
+
+nav a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background: white;
+  transition: width 0.2s ease;
 }
 
 nav a:hover {
   color: white;
+}
+
+nav a:hover::after {
+  width: 100%;
 }
