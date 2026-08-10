@@ -5,7 +5,11 @@ function scrollToSection(sectionId) {
 }
 
 function getClickMessage(count) {
-  return 'Learn More clicked ' + count + ' times';
+  if (count === 1) {
+    return 'Learn More clicked 1 time';
+  } else {
+    return 'Learn More clicked ' + count + ' times';
+  }
 }
 
 document.getElementById('learnMoreBtn').addEventListener('click', function (e) {
