@@ -1,5 +1,18 @@
 let clickCount = 0;
 
+const navLinks = ['Home', 'About', 'Contact'];
+
+document.getElementById('sectionList').textContent =
+  'This site has ' + navLinks.length + ' sections: ' + navLinks.join(', ');
+
+const siteInfo = {
+  title: 'My First Website',
+  author: 'A learner',
+  sectionCount: navLinks.length
+};
+
+document.getElementById('siteAuthor').textContent = 'Built by: ' + siteInfo.author;
+
 function scrollToSection(sectionId) {
   document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
 }
