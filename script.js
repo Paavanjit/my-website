@@ -48,9 +48,33 @@ document.getElementById('aboutNavLink').addEventListener('click', function (e) {
   scrollToSection('about');
 });
 
+let submissionCount = 0;
+
+function buildGreeting(name, count) {
+  if (name.trim() === '') {
+    return 'Please enter your name first.';
+  }
+
+  let sections = '';
+  for (const link of navLinks) {
+    sections = sections + link + ' ';
+  }
+
+  let visitText;
+  if (count === 1) {
+    visitText = 'This is your 1st message.';
+  } else {
+    visitText = 'This is your ' + count + 'th submission.';
+  }
+
+  return 'Hello, ' + name + '! This site has ' + siteInfo.sectionCount +
+    ' sections: ' + sections.trim() + '. ' + visitText;
+}
+
 document.getElementById('nameForm').addEventListener('submit', function (e) {
   e.preventDefault();
 
+  submissionCount = submissionCount + 1;
   const name = document.getElementById('nameInput').value;
-  document.getElementById('greeting').textContent = 'Hello, ' + name + '! Thanks for visiting.';
+  document.getElementById('greeting').textContent = buildGreeting(name, submissionCount);
 });
