@@ -13,6 +13,14 @@ const siteInfo = {
 
 document.getElementById('siteAuthor').textContent = 'Built by: ' + siteInfo.author;
 
+let sectionListText = 'Sections: ';
+
+for (const link of navLinks) {
+  sectionListText = sectionListText + link + ' ';
+}
+
+document.getElementById('loopedList').textContent = sectionListText;
+
 function scrollToSection(sectionId) {
   document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
 }
@@ -31,9 +39,18 @@ document.getElementById('learnMoreBtn').addEventListener('click', function (e) {
 
   clickCount = clickCount + 1;
   document.getElementById('clickCount').textContent = getClickMessage(clickCount);
+
+  document.getElementById('aboutHeading').style.color = '#3b82f6';
 });
 
 document.getElementById('aboutNavLink').addEventListener('click', function (e) {
   e.preventDefault();
   scrollToSection('about');
+});
+
+document.getElementById('nameForm').addEventListener('submit', function (e) {
+  e.preventDefault();
+
+  const name = document.getElementById('nameInput').value;
+  document.getElementById('greeting').textContent = 'Hello, ' + name + '! Thanks for visiting.';
 });
