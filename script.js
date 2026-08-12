@@ -1,5 +1,17 @@
 let clickCount = 0;
 
+fetch('https://api.open-meteo.com/v1/forecast?latitude=31.33&longitude=75.58&current_weather=true')
+  .then(function (response) {
+    return response.json();
+  })
+  .then(function (data) {
+    document.getElementById('temperature').textContent =
+      'Current temperature: ' + data.current_weather.temperature + '°C';
+  })
+  .catch(function (error) {
+    document.getElementById('temperature').textContent = 'Temperature unavailable right now.';
+  });
+
 const navLinks = ['Home', 'About', 'Contact'];
 
 document.getElementById('sectionList').textContent =
@@ -77,4 +89,20 @@ document.getElementById('nameForm').addEventListener('submit', function (e) {
   submissionCount = submissionCount + 1;
   const name = document.getElementById('nameInput').value;
   document.getElementById('greeting').textContent = buildGreeting(name, submissionCount);
+
+  fetch('https://api.agify.io/?name=' + name)
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      const currentText = document.getElementById('greeting').textContent;
+      document.getElementById('greeting').textContent =
+        currentText + ' People named ' + name + ' are often around ' + data.age + ' years old.';
+
+      document.getElementById('rawJson').textContent = JSON.stringify(data);
+    })
+    .catch(function (error) {
+      document.getElementById('greeting').textContent =
+        "Sorry, we couldn't get the API information right now.";
+    });
 });
