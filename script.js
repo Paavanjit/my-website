@@ -6,7 +6,7 @@ fetch('https://api.open-meteo.com/v1/forecast?latitude=31.33&longitude=75.58&cur
   })
   .then(function (data) {
     document.getElementById('temperature').textContent =
-      'Current temperature: ' + data.current_weather.temperature + '°C';
+      '🌡️ ' + data.current_weather.temperature + '°C';
   })
   .catch(function (error) {
     document.getElementById('temperature').textContent = 'Temperature unavailable right now.';

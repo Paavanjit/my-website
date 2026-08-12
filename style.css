@@ -8,6 +8,19 @@ body {
   padding: 0 20px;
 }
 
+.weather-widget {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  background: #1e293b;
+  color: #cbd5e1;
+  padding: 8px 14px;
+  border-radius: 20px;
+  font-size: 14px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  z-index: 10;
+}
+
 .hero {
   padding: 100px 20px 60px;
 }
